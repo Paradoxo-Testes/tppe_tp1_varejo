@@ -20,8 +20,9 @@ jobs:
           distribution: 'adopt'  # You can use any JDK distribution
       - name: Compile Project
         run: |
-          mkdir -p out/production/varejo
-          javac -d out/production/varejo src/**/*.java
+          mkdir -p tppe-varejo/out/production/varejo
+          find tppe-varejo/src -name "*.java" > sources.txt
+          javac -d tppe-varejo/out/production/varejo @sources.txt
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
         env:
